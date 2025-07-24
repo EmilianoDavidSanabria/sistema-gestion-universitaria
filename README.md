@@ -1,8 +1,8 @@
-# Sistema de Gestión Universitaria 🎓
+Sistema de Gestión Universitaria 🎓
 
 Proyecto web desarrollado con Django para la administración de universidades. Permite gestionar estudiantes, profesores, cursos, carreras, exámenes, aulas y más.
 
-## 📌 Funcionalidades principales
+📌 Funcionalidades principales
 
 - Registro y login de usuarios
 - CRUD completo para estudiantes, profesores, cursos, carreras, etc.
@@ -11,7 +11,7 @@ Proyecto web desarrollado con Django para la administración de universidades. P
 - Vistas detalladas y estadísticas por entidad
 - Diseño modular y escalable
 
-## 🛠️ Tecnologías usadas
+🛠️ Tecnologías usadas
 
 - Python 3
 - Django 4
@@ -19,7 +19,7 @@ Proyecto web desarrollado con Django para la administración de universidades. P
 - Bootstrap
 - SQLite
 
-## ⚙️ Cómo ejecutar el proyecto localmente
+⚙️ Cómo ejecutar el proyecto localmente
 
 1. Cloná el repositorio:
 
@@ -43,7 +43,7 @@ python manage.py runserver
 5. Accedé en tu navegador a:  
 http://127.0.0.1:8000
 
-## 🙋‍♂️ Autor
+🙋‍♂️ Autor
 
 Desarrollado por **Emiliano David Sanabria**  
 [GitHub](https://github.com/EmilianoDavidSanabria)
