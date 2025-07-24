@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Cursos por Profesor{% endblock %}
+
+{% block content %}
+    <h1>Cursos por Profesor</h1>
+    <ul class="list-group">
+        {% for reporte in reportes %}
+            <li class="list-group-item">
+                Profesor: {{ reporte.profesor.nombre }} {{ reporte.profesor.apellido }} - Total Cursos: {{ reporte.total_cursos }}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No se encontraron profesores.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

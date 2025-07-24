@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Cursos{% endblock %}
+
+{% block content %}
+<h1>Listado de Cursos</h1>
+<a href="{% url 'crear_curso' %}" class="btn btn-primary mb-3">Crear Nuevo Curso</a>
+<form method="get" action="{% url 'filtrar_cursos' %}" class="mb-3">
+    <div class="form-group">
+        <label for="carrera">Filtrar por Carrera:</label>
+        <input type="text" id="carrera" name="carrera" class="form-control" placeholder="Nombre de la Carrera">
+    </div>
+    <div class="form-group">
+        <label for="profesor">Filtrar por Profesor:</label>
+        <input type="text" id="profesor" name="profesor" class="form-control" placeholder="Nombre del Profesor">
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Profesor</th>
+            <th>Carrera</th>
+            <th>Créditos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.codigo }}</td>
+            <td>{{ curso.profesor }}</td>
+            <td>{{ curso.carrera }}</td>
+            <td>{{ curso.creditos }}</td>
+            <td>
+                <a href="{% url 'detalle_curso' curso.id %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'editar_curso' curso.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay cursos disponibles.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Departamento{% endblock %}
+
+{% block content %}
+    <h1>Detalle del Departamento: {{ departamento.nombre }}</h1>
+    <p>Facultad: {{ departamento.facultad.nombre }}</p>
+    <a class="btn btn-info" href="{% url 'profesores_por_departamento' departamento.id %}">Ver profesores del departamento</a>
+    <a class="btn btn-warning mt-2" href="{% url 'editar_departamento' departamento.id %}">Editar</a>
+    <a class="btn btn-danger mt-2" href="{% url 'eliminar_departamento' departamento.id %}">Eliminar</a>
+    <a class="btn btn-secondary mt-2" href="{% url 'listar_departamentos' %}">Volver a la lista de departamentos</a>
+{% endblock %}

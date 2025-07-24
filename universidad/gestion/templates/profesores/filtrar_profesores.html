@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Filtrar Profesores{% endblock %}
+
+{% block content %}
+<h1>Filtrar Profesores</h1>
+<form method="get" action="{% url 'filtrar_profesores' %}">
+    <div class="form-group">
+        <label for="departamento">Departamento:</label>
+        <input type="text" name="departamento" id="departamento" class="form-control" value="{{ request.GET.department }}">
+    </div>
+    <div class="form-group">
+        <label for="especialidad">Especialidad:</label>
+        <input type="text" name="especialidad" id="especialidad" class="form-control" value="{{ request.GET.especialidad }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+{% if profesores %}
+    <h2>Resultados de la búsqueda</h2>
+    {% include 'listar_profesores.html' %}
+{% endif %}
+<a href="{% url 'listar_profesores' %}" class="btn btn-secondary">Ver Todos</a>
+{% endblock %}

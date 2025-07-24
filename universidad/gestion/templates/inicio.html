@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1 class="main-title">Bienvenido a la Aplicación para Administrar tu Universidad!</h1>
+<p class="intro-text">Este es el inicio de nuestra aplicación. Aquí puedes acceder a las diferentes secciones.</p>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Estudiantes</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_estudiante' %}" class="btn btn-outline-primary w-100">Crear Estudiante</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_estudiantes' %}" class="btn btn-outline-primary w-100">Listar Estudiantes</a></li>
+                        <li class="list-group-item"><a href="{% url 'buscar_estudiantes' %}" class="btn btn-outline-primary w-100">Buscar Estudiantes</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_estudiantes' %}" class="btn btn-outline-primary w-100">Filtrar Estudiantes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Profesores</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_profesor' %}" class="btn btn-outline-primary w-100">Crear Profesor</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_profesores' %}" class="btn btn-outline-primary w-100">Listar Profesores</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_profesores' %}" class="btn btn-outline-primary w-100">Filtrar Profesores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Carreras</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_carrera' %}" class="btn btn-outline-primary w-100">Crear Carrera</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_carreras' %}" class="btn btn-outline-primary w-100">Listar Carreras</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_carreras' %}" class="btn btn-outline-primary w-100">Filtrar Carreras</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Cursos</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_curso' %}" class="btn btn-outline-primary w-100">Crear Curso</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_cursos' %}" class="btn btn-outline-primary w-100">Listar Cursos</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_cursos' %}" class="btn btn-outline-primary w-100">Filtrar Cursos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Inscripciones</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'inscribir_estudiante' %}" class="btn btn-outline-primary w-100">Inscribir Estudiante</a></li>
+                        <li class="list-group-item"><a href="{% url 'reporte_inscripciones_por_semestre' %}" class="btn btn-outline-primary w-100">Inscripciones por Semestre</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Exámenes</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_examen' %}" class="btn btn-outline-primary w-100">Crear Examen</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_examenes' %}" class="btn btn-outline-primary w-100">Listar Exámenes</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_examenes' %}" class="btn btn-outline-primary w-100">Filtrar Exámenes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Facultades</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_facultad' %}" class="btn btn-outline-primary w-100">Crear Facultad</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_facultades' %}" class="btn btn-outline-primary w-100">Listar Facultades</a></li>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Departamentos</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_departamento' %}" class="btn btn-outline-primary w-100">Crear Departamento</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_departamentos' %}" class="btn btn-outline-primary w-100">Listar Departamentos</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_departamentos' %}" class="btn btn-outline-primary w-100">Filtrar Departamentos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Aulas</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'crear_aula' %}" class="btn btn-outline-primary w-100">Crear Aula</a></li>
+                        <li class="list-group-item"><a href="{% url 'listar_aulas' %}" class="btn btn-outline-primary w-100">Listar Aulas</a></li>
+                        <li class="list-group-item"><a href="{% url 'filtrar_aulas' %}" class="btn btn-outline-primary w-100">Filtrar Aulas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Reportes y Estadísticas</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'reporte_estudiantes' %}" class="btn btn-outline-primary w-100">Reporte de Estudiantes</a></li>
+                        <li class="list-group-item"><a href="{% url 'reporte_estudiantes_por_curso' %}" class="btn btn-outline-primary w-100">Reporte de Estudiantes por Curso</a></li>
+                        <li class="list-group-item"><a href="{% url 'cursos_por_profesor' %}" class="btn btn-outline-primary w-100">Cursos por Profesor</a></li>
+                        <li class="list-group-item"><a href="{% url 'reporte_inscripciones_por_semestre' %}" class="btn btn-outline-primary w-100">Reporte de Inscripciones por Semestre</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Estudiantes{% endblock %}
+
+{% block content %}
+<h1>Buscar Estudiantes</h1>
+<form method="get" class="form-inline mb-3">
+    <input type="text" name="q" class="form-control mr-2" placeholder="Buscar por nombre o matrícula" value="{{ request.GET.q }}">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Matricula</th>
+            <th>Semestre</th>
+            <th>Promedio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.matricula }}</td>
+            <td>{{ estudiante.semestre }}</td>
+            <td>{{ estudiante.promedio_calificaciones }}</td>
+            <td>
+                <a href="{% url 'detalle_estudiante' estudiante.id %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'editar_estudiante' estudiante.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'eliminar_estudiante' estudiante.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No se encontraron resultados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'listar_estudiantes' %}" class="btn btn-secondary">Volver al Listado</a>
+{% endblock %}

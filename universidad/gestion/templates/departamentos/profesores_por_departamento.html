@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Profesores del Departamento{% endblock %}
+
+{% block content %}
+    <h1>Profesores del Departamento: {{ departamento.nombre }}</h1>
+    <ul class="list-group">
+        {% for profesor in profesores %}
+            <li class="list-group-item">
+                {{ profesor.nombre }} {{ profesor.apellido }} - Especialidad: {{ profesor.especialidad }}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay profesores en este departamento.</li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-secondary mt-3" href="{% url 'detalle_departamento' departamento.id %}">Volver al detalle del departamento</a>
+{% endblock %}

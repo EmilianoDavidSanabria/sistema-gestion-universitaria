@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Estudiantes{% endblock %}
+
+{% block content %}
+    <h1>Reporte de Estudiantes</h1>
+    <form method="get" action="{% url 'reporte_estudiantes' %}" class="mb-3">
+        <div class="form-group">
+            <label for="carrera">Filtrar por carrera:</label>
+            <input type="text" name="carrera" id="carrera" class="form-control" placeholder="Nombre de la carrera" value="{{ request.GET.carrera }}">
+        </div>
+        <div class="form-group">
+            <label for="semestre">Filtrar por semestre:</label>
+            <input type="number" name="semestre" id="semestre" class="form-control" placeholder="Número de semestre" value="{{ request.GET.semestre }}">
+        </div>
+        <div class="form-group">
+            <label for="promedio">Filtrar por promedio mínimo:</label>
+            <input type="number" step="0.01" name="promedio" id="promedio" class="form-control" placeholder="Promedio mínimo" value="{{ request.GET.promedio }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    
+    <ul class="list-group">
+        {% for estudiante in estudiantes %}
+            <li class="list-group-item">
+                {{ estudiante.nombre }} {{ estudiante.apellido }} - {{ estudiante.matricula }} - Promedio: {{ estudiante.promedio_calificaciones }}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No se encontraron estudiantes.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

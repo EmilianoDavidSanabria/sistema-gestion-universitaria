@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Departamentos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Departamentos</h1>
+    <a class="btn btn-success mb-3" href="{% url 'crear_departamento' %}">Crear nuevo departamento</a>
+    <form method="get" action="{% url 'filtrar_departamentos' %}" class="mb-3">
+        <div class="form-group">
+            <label for="facultad">Filtrar por facultad:</label>
+            <input type="text" name="facultad" id="facultad" class="form-control" placeholder="Nombre de la facultad">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    <ul class="list-group">
+        {% for departamento in departamentos %}
+            <li class="list-group-item">
+                <a href="{% url 'detalle_departamento' departamento.id %}">{{ departamento.nombre }}</a> - 
+                <a class="btn btn-warning btn-sm" href="{% url 'editar_departamento' departamento.id %}">Editar</a> - 
+                <a class="btn btn-danger btn-sm" href="{% url 'eliminar_departamento' departamento.id %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay departamentos.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

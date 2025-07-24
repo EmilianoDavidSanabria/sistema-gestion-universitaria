@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Filtrar Carreras{% endblock %}
+
+{% block content %}
+    <h1>Filtrar Carreras</h1>
+    <form method="get" action="{% url 'filtrar_carreras' %}">
+        <div class="form-group">
+            <label for="facultad">Facultad:</label>
+            <input type="text" name="facultad" id="facultad" class="form-control" placeholder="Nombre de la facultad">
+        </div>
+        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    </form>
+    <a class="btn btn-secondary mt-3" href="{% url 'listar_carreras' %}">Volver al Listado de Carreras</a>
+{% endblock %}

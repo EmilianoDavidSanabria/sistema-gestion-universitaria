@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Examen{% endblock %}
+
+{% block content %}
+    <h1>Detalle del Examen</h1>
+    <div class="card">
+        <div class="card-header">
+            {{ examen.curso.nombre }} - {{ examen.fecha }}
+        </div>
+        <div class="card-body">
+            <p><strong>Descripción:</strong> {{ examen.descripcion }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'listar_examenes' %}" class="btn btn-primary">Volver a la lista</a>
+            <a href="{% url 'editar_examen' examen.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'eliminar_examen' examen.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este examen?');">Eliminar</a>
+        </div>
+    </div>
+{% endblock %}

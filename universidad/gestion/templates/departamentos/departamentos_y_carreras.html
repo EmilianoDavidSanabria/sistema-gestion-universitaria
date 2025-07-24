@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Departamentos y Carreras{% endblock %}
+
+{% block content %}
+    <h1>Departamentos y Carreras de la Facultad de {{ facultad.nombre }}</h1>
+    <h2>Departamentos</h2>
+    <ul class="list-group">
+        {% for departamento in departamentos %}
+            <li class="list-group-item">
+                <a href="{% url 'detalle_departamento' departamento.id %}">{{ departamento.nombre }}</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay departamentos.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Carreras</h2>
+    <ul class="list-group">
+        {% for carrera in carreras %}
+            <li class="list-group-item">
+                {{ carrera.nombre }} (Duración: {{ carrera.duracion_semestres }} semestres)
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay carreras.</li>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-primary mt-3" href="{% url 'listar_departamentos' %}">Volver a la lista de departamentos</a>
+{% endblock %}

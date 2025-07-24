@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Inscripciones por Semestre{% endblock %}
+
+{% block content %}
+    <h1>Reporte de Inscripciones por Semestre</h1>
+    <form method="get" action="{% url 'reporte_inscripciones_por_semestre' %}" class="mb-3">
+        <div class="form-group">
+            <label for="semestre">Filtrar por semestre:</label>
+            <input type="number" name="semestre" id="semestre" class="form-control" placeholder="Número de semestre" value="{{ request.GET.semestre }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+
+    <ul class="list-group">
+        {% for inscripcion in inscripciones %}
+            <li class="list-group-item">
+                Estudiante: {{ inscripcion.estudiante.nombre }} {{ inscripcion.estudiante.apellido }} - Curso: {{ inscripcion.curso.nombre }} - Fecha de Inscripción: {{ inscripcion.fecha_inscripcion }}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No se encontraron inscripciones.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

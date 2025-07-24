@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Facultad{% endblock %}
+
+{% block content %}
+<h2>Detalle de la Facultad</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ facultad.nombre }}</h5>
+        <p class="card-text">ID: {{ facultad.id }}</p>
+        <a href="{% url 'editar_facultad' facultad.id %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'eliminar_facultad' facultad.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta facultad?');">Eliminar</a>
+        <a href="{% url 'listar_facultades' %}" class="btn btn-secondary">Volver al listado</a>
+    </div>
+</div>
+{% endblock %}

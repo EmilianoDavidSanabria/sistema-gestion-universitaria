@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Carreras{% endblock %}
+
+{% block content %}
+    <h1>Listado de Carreras</h1>
+    <a class="btn btn-primary mb-3" href="{% url 'crear_carrera' %}">Crear Carrera</a>
+    <form method="get" action="{% url 'filtrar_carreras' %}" class="mb-3">
+        <div class="form-group">
+            <label for="facultad">Facultad:</label>
+            <input type="text" name="facultad" id="facultad" class="form-control" placeholder="Nombre de la facultad">
+        </div>
+        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Duración (Semestres)</th>
+                <th>Facultad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carrera in carreras %}
+                <tr>
+                    <td>{{ carrera.nombre }}</td>
+                    <td>{{ carrera.duracion_semestres }}</td>
+                    <td>{{ carrera.facultad.nombre }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="{% url 'detalle_carrera' carrera.id %}">Detalles</a>
+                        <a class="btn btn-warning btn-sm" href="{% url 'editar_carrera' carrera.id %}">Editar</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'eliminar_carrera' carrera.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta carrera?');">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No hay carreras disponibles.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

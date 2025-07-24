@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Exámenes del Curso {{ curso.nombre }}{% endblock %}
+
+{% block content %}
+    <h1>Exámenes del Curso {{ curso.nombre }}</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for examen in examenes %}
+                <tr>
+                    <td>{{ examen.fecha }}</td>
+                    <td>{{ examen.descripcion|slice:":50" }}{% if examen.descripcion|length > 50 %}...{% endif %}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No hay exámenes para este curso.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

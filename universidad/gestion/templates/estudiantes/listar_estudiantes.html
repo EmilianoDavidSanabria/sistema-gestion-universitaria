@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Estudiantes{% endblock %}
+
+{% block content %}
+<h1>Listado de Estudiantes</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Matricula</th>
+            <th>Semestre</th>
+            <th>Promedio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.matricula }}</td>
+            <td>{{ estudiante.semestre }}</td>
+            <td>{{ estudiante.promedio_calificaciones }}</td>
+            <td>
+                <a href="{% url 'detalle_estudiante' estudiante.id %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'editar_estudiante' estudiante.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'eliminar_estudiante' estudiante.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay estudiantes registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'crear_estudiante' %}" class="btn btn-primary">Crear Estudiante</a>
+{% endblock %}

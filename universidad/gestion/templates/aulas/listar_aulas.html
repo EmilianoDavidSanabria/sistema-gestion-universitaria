@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Aulas{% endblock %}
+
+{% block content %}
+    <h1>Lista de Aulas</h1>
+    <a class="btn btn-success mb-3" href="{% url 'crear_aula' %}">Crear nueva aula</a>
+    <form method="get" action="{% url 'filtrar_aulas' %}" class="mb-3">
+        <div class="form-group">
+            <label for="capacidad">Filtrar por capacidad:</label>
+            <input type="number" name="capacidad" id="capacidad" class="form-control" placeholder="Capacidad mínima">
+        </div>
+        <div class="form-group">
+            <label for="edificio">Filtrar por edificio:</label>
+            <input type="text" name="edificio" id="edificio" class="form-control" placeholder="Nombre del edificio">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    <ul class="list-group">
+        {% for aula in aulas %}
+            <li class="list-group-item">
+                <a href="{% url 'detalle_aula' aula.id %}">{{ aula.numero }} - {{ aula.edificio }} - Capacidad: {{ aula.capacidad }}</a> - 
+                <a class="btn btn-warning btn-sm" href="{% url 'editar_aula' aula.id %}">Editar</a> - 
+                <a class="btn btn-danger btn-sm" href="{% url 'eliminar_aula' aula.id %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay aulas.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

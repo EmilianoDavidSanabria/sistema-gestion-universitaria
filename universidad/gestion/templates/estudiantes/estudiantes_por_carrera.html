@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Estudiantes por Carrera{% endblock %}
+
+{% block content %}
+    <h1>Estudiantes de la Carrera: {{ carrera.nombre }}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Matrícula</th>
+                <th>Semestre</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.apellido }}</td>
+                    <td>{{ estudiante.matricula }}</td>
+                    <td>{{ estudiante.semestre }}</td>
+                    <td>{{ estudiante.promedio_calificaciones }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No hay estudiantes en esta carrera.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'listar_carreras' %}">Volver al Listado de Carreras</a>
+{% endblock %}

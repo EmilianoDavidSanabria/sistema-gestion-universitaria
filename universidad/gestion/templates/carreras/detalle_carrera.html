@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Carrera{% endblock %}
+
+{% block content %}
+    <h1>Detalle de la Carrera</h1>
+    <p><strong>Nombre:</strong> {{ carrera.nombre }}</p>
+    <p><strong>Duración (Semestres):</strong> {{ carrera.duracion_semestres }}</p>
+    <p><strong>Facultad:</strong> {{ carrera.facultad.nombre }}</p>
+    <a class="btn btn-primary" href="{% url 'editar_carrera' carrera.id %}">Editar Carrera</a>
+    <a class="btn btn-secondary" href="{% url 'listar_carreras' %}">Volver al Listado</a>
+{% endblock %}

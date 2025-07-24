@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Inscripciones de {{ estudiante.nombre }}{% endblock %}
+
+{% block content %}
+    <h1>Inscripciones de {{ estudiante.nombre }}</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Fecha de Inscripción</th>
+                <th>Calificación Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inscripcion in inscripciones %}
+                <tr>
+                    <td><a href="{% url 'detalle_curso' inscripcion.curso.id %}">{{ inscripcion.curso.nombre }}</a></td>
+                    <td>{{ inscripcion.fecha_inscripcion }}</td>
+                    <td>{{ inscripcion.calificacion_final|default:"No asignada" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No hay inscripciones para este estudiante.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

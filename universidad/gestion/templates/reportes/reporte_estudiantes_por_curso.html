@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Estudiantes por Curso{% endblock %}
+
+{% block content %}
+    <h1>Reporte de Estudiantes por Curso</h1>
+    <ul class="list-group">
+        {% for reporte in reportes %}
+            <li class="list-group-item">
+                Curso: {{ reporte.curso.nombre }} - Total Estudiantes: {{ reporte.total_estudiantes }}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No se encontraron cursos.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

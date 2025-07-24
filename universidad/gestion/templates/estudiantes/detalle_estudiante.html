@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Estudiante{% endblock %}
+
+{% block content %}
+<h1>Detalles del Estudiante</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ estudiante.nombre }}</td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>{{ estudiante.apellido }}</td>
+        </tr>
+        <tr>
+            <th>Fecha de Nacimiento</th>
+            <td>{{ estudiante.fecha_nacimiento }}</td>
+        </tr>
+        <tr>
+            <th>Matricula</th>
+            <td>{{ estudiante.matricula }}</td>
+        </tr>
+        <tr>
+            <th>Carrera</th>
+            <td>{{ estudiante.carrera }}</td>
+        </tr>
+        <tr>
+            <th>Semestre</th>
+            <td>{{ estudiante.semestre }}</td>
+        </tr>
+        <tr>
+            <th>Promedio</th>
+            <td>{{ estudiante.promedio_calificaciones }}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'editar_estudiante' estudiante.id %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'listar_estudiantes' %}" class="btn btn-secondary">Volver al Listado</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{# tu_proyecto_principal/templates/registration/logged_out.html #}
+{% extends 'base.html' %}
+
+{% block title %}Sesión Cerrada{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="jumbotron">
+        <h1 class="display-4">¡Sesión Cerrada!</h1>
+        <p class="lead">Has cerrado tu sesión con éxito.</p>
+        <hr class="my-4">
+        <p>Gracias por usar nuestra aplicación.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Iniciar Sesión de Nuevo</a>
+        <a class="btn btn-outline-secondary btn-lg ml-2" href="{% url 'inicio' %}" role="button">Volver al Inicio</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Aula{% endblock %}
+
+{% block content %}
+    <h1>Detalle del Aula: {{ aula.numero }}</h1>
+    <p>Edificio: {{ aula.edificio }}</p>
+    <p>Capacidad: {{ aula.capacidad }}</p>
+    <a class="btn btn-warning" href="{% url 'editar_aula' aula.id %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'eliminar_aula' aula.id %}">Eliminar</a>
+    <a class="btn btn-secondary mt-2" href="{% url 'listar_aulas' %}">Volver a la lista de aulas</a>
+{% endblock %}

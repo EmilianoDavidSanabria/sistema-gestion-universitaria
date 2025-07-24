@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Curso{% endblock %}
+
+{% block content %}
+<h1>Detalles del Curso</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ curso.nombre }}</h5>
+        <p class="card-text"><strong>Código:</strong> {{ curso.codigo }}</p>
+        <p class="card-text"><strong>Profesor:</strong> {{ curso.profesor }}</p>
+        <p class="card-text"><strong>Carrera:</strong> {{ curso.carrera }}</p>
+        <p class="card-text"><strong>Créditos:</strong> {{ curso.creditos }}</p>
+        <a href="{% url 'listar_cursos' %}" class="btn btn-primary">Volver a la lista</a>
+        <a href="{% url 'editar_curso' curso.id %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-danger">Eliminar</a>
+    </div>
+</div>
+{% endblock %}

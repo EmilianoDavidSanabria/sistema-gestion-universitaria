@@ -1,0 +1,59 @@
+{# tu_proyecto_principal/templates/registration/login.html #}
+{% extends 'base_nojs.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Iniciar Sesión</h3>
+                </div>
+                <div class="card-body">
+                    {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            Tu nombre de usuario y contraseña no coinciden. Por favor, inténtalo de nuevo.
+                        </div>
+                    {% endif %}
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                            <div class="alert alert-warning" role="alert">
+                                Tu cuenta no tiene acceso a esta página. Para proceder, inicia sesión con una cuenta que tenga acceso.
+                            </div>
+                        {% else %}
+                            <div class="alert alert-info" role="alert">
+                                Por favor, inicia sesión para ver esta página.
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {# Usa form.as_p para renderizar los campos con etiquetas y errores #}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger mt-1">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+
+                        <input type="submit" value="Iniciar Sesión" class="btn btn-primary btn-block mt-3">
+                        <input type="hidden" name="next" value="{{ next }}"> {# Importante para redirigir después del login #}
+                    </form>
+                    <p class="mt-3 text-center">
+                        ¿No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

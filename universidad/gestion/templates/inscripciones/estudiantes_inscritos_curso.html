@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Estudiantes Inscritos en {{ curso.nombre }}{% endblock %}
+
+{% block content %}
+    <h1>Estudiantes Inscritos en {{ curso.nombre }}</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Matricula</th>
+                <th>Fecha de Inscripción</th>
+                <th>Calificación Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }} {{ estudiante.apellido }}</td>
+                    <td>{{ estudiante.matricula }}</td>
+                    <td>{{ estudiante.inscripcion_set.get(curso=curso).fecha_inscripcion }}</td>
+                    <td>{{ estudiante.inscripcion_set.get(curso=curso).calificacion_final|default:"No asignada" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No hay estudiantes inscritos en este curso.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
