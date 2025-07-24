@@ -1,4 +1,4 @@
-Sistema de Gestión Universitaria 🎓
+**Sistema de Gestión Universitaria 🎓**
 
 Proyecto web desarrollado con Django para la administración de universidades. Permite gestionar estudiantes, profesores, cursos, carreras, exámenes, aulas y más.
 
