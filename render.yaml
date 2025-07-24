@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sistema-gestion-universitaria
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn universidad.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: universidad.settings
+      - key: PYTHON_VERSION
+        value: 3.10
