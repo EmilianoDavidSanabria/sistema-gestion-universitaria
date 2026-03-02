@@ -7,6 +7,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.contrib.auth import views as auth_views
+from .views import health_check
 
 # Configuración de Swagger
 schema_view = get_schema_view(
@@ -119,4 +120,6 @@ urlpatterns = [
     path('reportes/estudiantes-por-curso/', views.reporte_estudiantes_por_curso, name='reporte_estudiantes_por_curso'),
     path('reportes/cursos-por-profesor/', views.cursos_por_profesor, name='cursos_por_profesor'),
     path('reportes/inscripciones-por-semestre/', views.reporte_inscripciones_por_semestre, name='reporte_inscripciones_por_semestre'),
+
+    path('despertador/', health_check, name='despertador'),
 ]

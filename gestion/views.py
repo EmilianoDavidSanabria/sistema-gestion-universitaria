@@ -520,3 +520,8 @@ def reporte_inscripciones_por_semestre(request):
     inscripciones = Inscripcion.objects.filter(estudiante__semestre=semestre)
     return render(request, 'reportes/reporte_inscripciones_por_semestre.html', {'inscripciones': inscripciones})
 
+
+from django.http import HttpResponse
+
+def health_check(request):
+    return HttpResponse("Despierta Universidad", content_type="text/plain")
