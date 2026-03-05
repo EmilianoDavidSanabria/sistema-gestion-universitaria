@@ -17,7 +17,7 @@ Proyecto web desarrollado con Django para la administración de universidades. P
 - Django 4
 - HTML5, CSS3
 - Bootstrap
-- SQLite
+- PostgreSQL
 
 ⚙️ Cómo ejecutar el proyecto localmente
 
