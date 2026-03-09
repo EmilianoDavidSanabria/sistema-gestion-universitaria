@@ -10,6 +10,8 @@ Proyecto web desarrollado con Django para la administración de universidades. P
 - Reportes de rendimiento académico, inscripciones, cursos por profesor
 - Vistas detalladas y estadísticas por entidad
 - Diseño modular y escalable
+- tests con `Django TestCase` cubriendo lógica de CRUD, cálculos de stock y validación de exportación Excel (`OpenPyXL`).
+- Docker Entorno contenedorizado con `Dockerfile` y `docker-compose.yml` (App + PostgreSQL).
 
 🛠️ Tecnologías usadas
 
