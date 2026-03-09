@@ -2,6 +2,8 @@
 
 Proyecto web desarrollado con Django para la administración de universidades. Permite gestionar estudiantes, profesores, cursos, carreras, exámenes, aulas y más.
 
+#APP DESPLEGADA: https://sistema-gestion-universitaria-1.onrender.com/
+
 📌 Funcionalidades principales
 
 - Registro y login de usuarios
